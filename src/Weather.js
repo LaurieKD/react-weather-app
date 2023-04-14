@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import cloudy from "./cloudy.png";
@@ -6,6 +7,7 @@ import "./Weather.css";
 
 export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
+	const [city, setCity] = useState(props.defaultCity);
 	function handleResponse(response) {
 		console.log(response.data);
 		setWeatherData({
@@ -21,6 +23,17 @@ export default function Weather(props) {
 		});
 	}
 
+	function handleSubmit(event) {
+		event.preventDefault();
+		setWeatherData({ ready: false });
+		// search for a city
+	}
+
+	function handleCityChange(event) {
+		event.preventDefault();
+		setCity(event.target.value);
+	}
+
 	let header = (
 		<div>
 			<div className="Block Block-1">
@@ -30,6 +43,7 @@ export default function Weather(props) {
 				<form
 					id="search-form"
 					class="mb-4 form"
+					onSubmit={handleSubmit}
 				>
 					<div class="row">
 						<div class="col-9">
@@ -39,6 +53,7 @@ export default function Weather(props) {
 								class="form-control"
 								id="city-input"
 								autocomplete="off"
+								onChange={handleCityChange}
 							/>
 						</div>
 						<div class="col-3">
@@ -59,6 +74,7 @@ export default function Weather(props) {
 			<div className="Weather">
 				{header}
 				<div className="Block Block-3">
+					<WeatherInfo data={weatherData} />
 					<div className="row">
 						<div className="col-6">
 							<h2 id="city">{weatherData.city}</h2>
@@ -114,7 +130,7 @@ export default function Weather(props) {
 		);
 	} else {
 		const apiKey = "2335b3c82b10f0343t05f9bo28bfaca3";
-		let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+		let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 		axios.get(apiUrl).then(handleResponse);
 
 		return <div>{header}</div>;
