@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import cloudy from "./cloudy.png";
 import "./Weather.css";
@@ -10,7 +11,7 @@ export default function Weather(props) {
 		setWeatherData({
 			city: response.data.city,
 			temperature: response.data.temperature.current,
-			update: "now",
+			update: new Date(1000 * response.data.time),
 			condition: response.data.condition.description,
 			humidity: response.data.temperature.humidity,
 			wind: response.data.wind.speed,
@@ -59,16 +60,18 @@ export default function Weather(props) {
 				{header}
 				<div className="Block Block-3">
 					<div className="row">
-						<div className="col-7">
+						<div className="col-6">
 							<h2 id="city">{weatherData.city}</h2>
 							<ul className="info-block">
-								<li>Last update: {weatherData.update}</li>
+								<li>
+									Last update: <FormattedDate date={weatherData.update} />
+								</li>
 								<li>Condition: {weatherData.condition}</li>
 								<li>Humidity: {weatherData.humidity}%</li>
 								<li>Wind: {weatherData.wind}km/h</li>
 							</ul>
 						</div>
-						<div className="col-5">
+						<div className="col-6">
 							<div className="d-flex weather-temperature">
 								<img
 									src={weatherData.icon}
