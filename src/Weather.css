@@ -69,11 +69,26 @@ footer a:hover {
 	margin: 20px;
 }
 
+.right-block {
+	margin-top: 50px;
+}
+
 .top-icon {
-	width: 60%;
+	width: 50%;
 }
 
 .units {
-	font-size: 18px;
+	font-size: 30px;
 	vertical-align: top;
+	font-weight: 900;
+}
+
+.units a {
+	color: grey;
+}
+
+.units a:link {
+	font-size: 30px;
+	font-weight: 100;
+	color: black;
 }

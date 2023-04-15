@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
 import cloudy from "./cloudy.png";
 import "./Weather.css";
@@ -96,13 +97,7 @@ export default function Weather(props) {
 									class="top-icon"
 								/>
 								<div className="right-block">
-									<span
-										id="temperature"
-										className="current-temperature"
-									>
-										{Math.round(weatherData.temperature)}
-									</span>
-									<span className="units">°C</span>
+									<WeatherTemperature celsius={weatherData.temperature} />
 								</div>
 							</div>
 						</div>
@@ -111,6 +106,7 @@ export default function Weather(props) {
 				<div className="Block Block-4">
 					<div class="weather-forecast">
 						<h3>Forecast</h3>
+						<p>Coming soon..</p>
 						<div id="forecast"></div>
 					</div>
 				</div>
