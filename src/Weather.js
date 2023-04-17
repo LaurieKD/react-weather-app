@@ -4,14 +4,13 @@ import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import Forecast from "./Forecast";
 import axios from "axios";
-import cloudy from "./cloudy.png";
 import "./Weather.css";
 
 export default function Weather(props) {
 	const [weatherData, setWeatherData] = useState({ ready: false });
 	const [city, setCity] = useState(props.defaultCity);
+
 	function handleResponse(response) {
-		console.log(response.data);
 		setWeatherData({
 			city: response.data.city,
 			temperature: response.data.temperature.current,
@@ -28,7 +27,6 @@ export default function Weather(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		setWeatherData({ ready: false });
-		// search for a city
 	}
 
 	function handleCityChange(event) {
