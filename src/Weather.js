@@ -45,8 +45,8 @@ export default function Weather(props) {
 					class="mb-4 form"
 					onSubmit={handleSubmit}
 				>
-					<div class="row">
-						<div class="col-9">
+					<div className="row">
+						<div className="col-9">
 							<input
 								type="search"
 								placeholder="Search for a city"
@@ -56,11 +56,11 @@ export default function Weather(props) {
 								onChange={handleCityChange}
 							/>
 						</div>
-						<div class="col-3">
+						<div className="col-3">
 							<input
 								type="submit"
 								value="Check!"
-								class="btn btn-primary w-100"
+								className="btn btn-primary w-100"
 							/>
 						</div>
 					</div>
@@ -93,7 +93,7 @@ export default function Weather(props) {
 									src={weatherData.icon}
 									alt={weatherData.description}
 									id="icon"
-									class="top-icon"
+									className="top-icon"
 								/>
 								<div className="right-block">
 									<WeatherTemperature celsius={weatherData.temperature} />
@@ -103,7 +103,7 @@ export default function Weather(props) {
 					</div>
 				</div>
 				<div className="Block Block-4">
-					<div class="weather-forecast">
+					<div className="weather-forecast">
 						<Forecast city={weatherData.city} />
 						<div id="forecast"></div>
 					</div>

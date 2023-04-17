@@ -14,7 +14,10 @@ export default function ForecastBlock(props) {
 		<div>
 			<div className="Forecast-day">{day()}</div>
 			<div className="Forecast-icon">
-				<img src={props.forecastData.condition.icon_url} />
+				<img
+					src={props.forecastData.condition.icon_url}
+					alt={props.forecastData.condition.icon}
+				/>
 			</div>
 			<div className="Forecast-temp">
 				<span className="Forecast-max">{Math.round(props.forecastData.temperature.maximum)}° </span>
