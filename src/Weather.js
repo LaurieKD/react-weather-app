@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
 import axios from "axios";
 import cloudy from "./cloudy.png";
 import "./Weather.css";
@@ -105,8 +106,7 @@ export default function Weather(props) {
 				</div>
 				<div className="Block Block-4">
 					<div class="weather-forecast">
-						<h3>Forecast</h3>
-						<p>Coming soon..</p>
+						<Forecast city={weatherData.city} />
 						<div id="forecast"></div>
 					</div>
 				</div>

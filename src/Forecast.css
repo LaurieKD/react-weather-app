@@ -1,0 +1,20 @@
+.Forecast {
+	text-align: center;
+}
+
+.Forecast-icon {
+	display: block;
+	margin: 0 auto;
+}
+
+.Forecast-temp {
+	text-align: center;
+}
+
+.Forecast-max {
+	font-weight: bold;
+}
+
+.Forecast-min {
+	opacity: 0.7;
+}
